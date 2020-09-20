@@ -87,7 +87,7 @@ class BinaryAdder():
         raise SystemExit()
 
 def main():
-    adder = SimpleAdder()
+    adder = BinaryAdder()
     adder.show_intro()
     a0, b0, c0 = adder.get_user_input()
     a0andb0, a0orb0, a0xorb0 = adder.logic_gates(a0, b0)
