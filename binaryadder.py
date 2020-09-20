@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 '''
-simpleadder.py
+binaryadder.py
 '''
 
-class SimpleAdder():
+class BinaryAdder():
 
     def and_gate(self, a0, b0):
         if (a0 == 1 and b0 == 1):
@@ -56,7 +56,7 @@ class SimpleAdder():
         c2 = self.and_gate(a0, b0)
         carry_bit = self.or_gate(c1, c2)
         result = str(carry_bit) + str(suma0b0)
-        
+
         return suma0b0, c1, c2, carry_bit, result
 
     def show_result(self, a0, b0, c0, c1, c2, a0xorb0, suma0b0, carry_bit, result):
