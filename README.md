@@ -1,2 +1,2 @@
 # BinaryAdder
-Python implementation of a simple 2-bit binary adder circuit.
+Python code representation of a simple 2-bit binary adder circuit.
