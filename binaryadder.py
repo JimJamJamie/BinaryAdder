@@ -22,8 +22,9 @@ class BinaryAdder():
 
     def show_intro(self):
         title = '2-bit Binary Adder'
-        print(title)
+        print('\n' + title)
         print('-' * len(title) + '\n')
+        print('Choose three binary numbers for the adder to compute.' + '\n')
 
     def get_user_input(self):
         a0 = int(input('Set the first number to 0 or 1: '))
@@ -40,11 +41,16 @@ class BinaryAdder():
         return a0_and_b0, a0_or_b0, a0_xor_b0
 
     def show_logic_gates(self, a0, b0, a0_and_b0, a0_or_b0, a0_xor_b0):
-        print('\n' + '-' * 38)
-        print('Logic gate ' + str(a0) + ' AND ' + str(b0) + ': ' + str(a0_and_b0))
-        print('Logic gate ' + str(a0) + ' OR  ' + str(b0) + ': ' + str(a0_or_b0))
-        print('Logic gate ' + str(a0) + ' XOR ' + str(b0) + ': ' + str(a0_xor_b0))
-        print('-' * 38)
+        and_gate = 'AND gate [' + str(a0) + ' AND ' + str(b0) + ']: ' + str(a0_and_b0)
+        or_gate = 'OR  gate [' + str(a0) + ' OR  ' + str(b0) + ']: ' + str(a0_or_b0)
+        xor_gate = 'XOR gate [' + str(a0) + ' XOR ' + str(b0) + ']: ' + str(a0_xor_b0)
+
+        print('\n' + 'LOGIC GATES')
+        print('-' * len(and_gate))
+        print(and_gate)
+        print(or_gate)
+        print(xor_gate)
+        #print('-' * len(and_gate))
 
     def calculate_result(self, a0, b0, c0, a0_xor_b0):
         sum_a0_b0 = self.xor_gate(a0_xor_b0, c0)
@@ -56,26 +62,27 @@ class BinaryAdder():
         return sum_a0_b0, c1, c2, carry_bit, result
 
     def show_result(self, a0, b0, c0, c1, c2, a0_xor_b0, sum_a0_b0, carry_bit, result):
-        print('\nThe addition calculation is: '+ str(a0) + ' PLUS ' + str(b0) +  ', CARRY ' + str(c0) + '\n')
-
-        print('Initial state of adder circuit:')
+        print('\n' + 'Initial state of adder circuit:')
         print('A: ' + str(a0))
         print('B: ' + str(b0))
         print('C (CARRY): ' + str(c0))
 
-        print('\nCalculate the sum of A and B:')
+        print('\n' + 'The addition calculation is: ')
+        print(str(a0) + ' PLUS ' + str(b0) +  ', CARRY ' + str(c0))
+
+        print('\n' + 'Calculate the sum of A and B:')
         print('A XOR B [' + str(a0) + ' + ' + str(b0) + ']: ' + str(a0_xor_b0))
-        print('\nFactor in the previous carry bit:')
+        print('\n' + 'Factor in the carry bit:')
         print('SUM = (A XOR B) XOR C [' + str(a0_xor_b0) +  ' + ' + str(c0) + ']: ' + str(sum_a0_b0))
 
-        print('\nGenerate the input values for carry bit calculation:')
+        print('\n' + 'Generate the input values for new carry bit calculation:')
         print('C1 = (A XOR B) AND C [' + str(a0_xor_b0) + ' + ' + str(c0) + ']: ' + str(c1))
         print('C2 = A AND B [' + str(a0) + ' + ' + str(b0) + ']: ' + str(c2))
 
-        print('\nCalculate the carry bit')
+        print('\n' + 'Calculate the new carry bit')
         print('CARRY = C1 OR C2 [' + str(c2) + ' + ' + str(c1) + ']: ' + str(carry_bit))
 
-        print('\nConcatenate the carry bit and sum bit for the final 2-bit result:')
+        print('\n' + 'Concatenate the new carry bit and sum bit for the final 2-bit result:')
         print('RESULT (CARRY|SUM): ' + result + '\n')
 
     def quit(self):
