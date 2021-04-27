@@ -27,8 +27,8 @@ class BinaryAdder():
         print('Choose three binary numbers for the adder to compute.' + '\n')
 
     def get_user_input(self):
-        a0 = int(input('Set the first number to 0 or 1: '))
-        b0 = int(input('Set the second number to 0 or 1: '))
+        a0 = int(input('Set the first bit to 0 or 1: '))
+        b0 = int(input('Set the second bit to 0 or 1: '))
         c0 = int(input('Set the carry bit to 0 or 1: '))
 
         return a0, b0, c0
@@ -50,7 +50,6 @@ class BinaryAdder():
         print(and_gate)
         print(or_gate)
         print(xor_gate)
-        #print('-' * len(and_gate))
 
     def calculate_result(self, a0, b0, c0, a0_xor_b0):
         sum_a0_b0 = self.xor_gate(a0_xor_b0, c0)
@@ -62,12 +61,12 @@ class BinaryAdder():
         return sum_a0_b0, c1, c2, carry_bit, result
 
     def show_result(self, a0, b0, c0, c1, c2, a0_xor_b0, sum_a0_b0, carry_bit, result):
-        print('\n' + 'Initial state of adder circuit:')
-        print('A: ' + str(a0))
-        print('B: ' + str(b0))
-        print('C (CARRY): ' + str(c0))
+        print('\n' + 'Initial state of the adder circuit:')
+        print('Input A:   ' + str(a0))
+        print('Input B:   ' + str(b0))
+        print('Carry Bit: ' + str(c0))
 
-        print('\n' + 'The addition calculation is: ')
+        print('\n' + 'The sum calculation is: ')
         print(str(a0) + ' PLUS ' + str(b0) +  ', CARRY ' + str(c0))
 
         print('\n' + 'Calculate the sum of A and B:')
