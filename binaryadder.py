@@ -26,10 +26,23 @@ class BinaryAdder():
         print('-' * len(title) + '\n')
         print('Choose three binary numbers for the adder to compute.' + '\n')
 
+    def validate_input(self, prompt_text):
+        user_input = int()
+        while user_input != 0 or user_input != 1:
+            try:
+                user_input = int(input(prompt_text))
+            except:
+                print('Input a valid number.')
+            else:
+                if user_input > 1 or user_input < 0:
+                    print('Input 0 or 1.')
+                else:
+                    return user_input
+                
     def get_user_input(self):
-        a0 = int(input('Set the first bit to 0 or 1: '))
-        b0 = int(input('Set the second bit to 0 or 1: '))
-        c0 = int(input('Set the carry bit to 0 or 1: '))
+        a0 = self.validate_input('Set the first bit to 0 or 1: ')
+        b0 = self.validate_input('Set the second bit to 0 or 1: ')
+        c0 = self.validate_input('Set the carry bit to 0 or 1: ')
 
         return a0, b0, c0
 
@@ -84,8 +97,10 @@ class BinaryAdder():
         print('\n' + 'Concatenate the new carry bit and sum bit for the final 2-bit result:')
         print('RESULT (CARRY|SUM): ' + result + '\n')
 
-    def quit(self):
-        input('Press ENTER to quit: ')
+        print('Calculation complete!' + '\n')
+
+    def exit(self):
+        input('Press the RETURN key to exit: ')
         raise SystemExit()
 
 def main():
@@ -96,7 +111,7 @@ def main():
     adder.show_logic_gates(a0, b0, a0_and_b0, a0_or_b0, a0_xor_b0)
     sum_a0_b0, c1, c2, carry_bit, result = adder.calculate_result(a0, b0, c0, a0_xor_b0)
     adder.show_result(a0, b0, c0, c1, c2, a0_xor_b0, sum_a0_b0, carry_bit, result)
-    adder.quit()
+    adder.exit()
 
 if __name__ == '__main__':
     main()
