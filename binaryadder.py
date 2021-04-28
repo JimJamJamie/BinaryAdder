@@ -38,7 +38,7 @@ class BinaryAdder():
                     print('Input 0 or 1.')
                 else:
                     return user_input
-                
+
     def get_user_input(self):
         a0 = self.validate_input('Set the first bit to 0 or 1: ')
         b0 = self.validate_input('Set the second bit to 0 or 1: ')
@@ -46,7 +46,7 @@ class BinaryAdder():
 
         return a0, b0, c0
 
-    def logic_gates(self, a0, b0):
+    def create_logic_gates(self, a0, b0):
         a0_and_b0 = self.and_gate(a0, b0)
         a0_or_b0 = self.or_gate(a0, b0)
         a0_xor_b0 = self.xor_gate(a0, b0)
@@ -107,7 +107,7 @@ def main():
     adder = BinaryAdder()
     adder.show_intro()
     a0, b0, c0 = adder.get_user_input()
-    a0_and_b0, a0_or_b0, a0_xor_b0 = adder.logic_gates(a0, b0)
+    a0_and_b0, a0_or_b0, a0_xor_b0 = adder.create_logic_gates(a0, b0)
     adder.show_logic_gates(a0, b0, a0_and_b0, a0_or_b0, a0_xor_b0)
     sum_a0_b0, c1, c2, carry_bit, result = adder.calculate_result(a0, b0, c0, a0_xor_b0)
     adder.show_result(a0, b0, c0, c1, c2, a0_xor_b0, sum_a0_b0, carry_bit, result)
