@@ -40,9 +40,9 @@ class BinaryAdder():
                     return user_input
 
     def get_user_input(self):
-        a0 = self.validate_input('Set the first bit to 0 or 1: ')
-        b0 = self.validate_input('Set the second bit to 0 or 1: ')
-        c0 = self.validate_input('Set the carry bit to 0 or 1: ')
+        a0 = self.validate_input('Set the first bit [A] to 0 or 1: ')
+        b0 = self.validate_input('Set the second bit [B] to 0 or 1: ')
+        c0 = self.validate_input('Set the carry bit [C] to 0 or 1: ')
 
         return a0, b0, c0
 
@@ -54,9 +54,9 @@ class BinaryAdder():
         return a0_and_b0, a0_or_b0, a0_xor_b0
 
     def show_logic_gates(self, a0, b0, a0_and_b0, a0_or_b0, a0_xor_b0):
-        and_gate = 'AND gate [' + str(a0) + ' AND ' + str(b0) + ']: ' + str(a0_and_b0)
-        or_gate = 'OR  gate [' + str(a0) + ' OR  ' + str(b0) + ']: ' + str(a0_or_b0)
-        xor_gate = 'XOR gate [' + str(a0) + ' XOR ' + str(b0) + ']: ' + str(a0_xor_b0)
+        and_gate = 'A AND B [' + str(a0) + ' AND ' + str(b0) + ']: ' + str(a0_and_b0)
+        or_gate = 'A OR  B [' + str(a0) + ' OR  ' + str(b0) + ']: ' + str(a0_or_b0)
+        xor_gate = 'A XOR B [' + str(a0) + ' XOR ' + str(b0) + ']: ' + str(a0_xor_b0)
 
         print('\n' + 'LOGIC GATES')
         print('-' * len(and_gate))
@@ -75,9 +75,9 @@ class BinaryAdder():
 
     def show_result(self, a0, b0, c0, c1, c2, a0_xor_b0, sum_a0_b0, carry_bit, result):
         print('\n' + 'Initial state of the adder circuit:')
-        print('Input A:   ' + str(a0))
-        print('Input B:   ' + str(b0))
-        print('Carry Bit: ' + str(c0))
+        print('Input A: ' + str(a0))
+        print('Input B: ' + str(b0))
+        print('Carry C: ' + str(c0))
 
         print('\n' + 'The sum calculation is: ')
         print(str(a0) + ' PLUS ' + str(b0) +  ', CARRY ' + str(c0))
